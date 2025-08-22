@@ -1,6 +1,6 @@
 
-<h1 align="center"> <a> <a href="#">Robustness of CNN-Based Model Assessment for Pig Vocalization Classification Across Diverse Acoustic Environments </a></h1>
-<h3>
+<h2 align="center"> <a> <a href="#">Robustness of CNN-Based Model Assessment for Pig Vocalization Classification Across Diverse Acoustic Environments </a></h1>
+<h2>
     <a href="#"><img src="images/coming_soon.webp" width="100%"></a>
 </h3>
 
