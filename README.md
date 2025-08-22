@@ -1,6 +1,10 @@
 
-<h1 align="center"> <a> <a href="https://www.mdpi.com/2076-2615/14/14/2029">DCNN for Pig Vocalization and Non-Vocalization Classification: Evaluate Model Robustness with New Data </a></h1>
+<h1 align="center"> <a> <a href="#">Robustness of CNN-Based Model Assessment for Pig Vocalization Classification Across Diverse Acoustic Environments </a></h1>
+<h3>
+    <a href="#"><img src="images/coming_soon.webp" width="100%"></a>
+</h3>
 
+<!-- 
 <h3>
     <a href="https://www.mdpi.com/2076-2615/14/14/2029"><img src="images/1.png" width="100%"></a>
 </h3>
@@ -119,12 +123,12 @@ URL = {https://www.mdpi.com/2076-2615/14/14/2029},
 ISSN = {2076-2615},
 DOI = {10.3390/ani14142029}
 }
-```
+``` -->
 
-## Contents
+<!-- ## Contents -->
 
 <!-- TOC -->
-  * [Simple Summary](#simple-summary)
+  <!-- * [Simple Summary](#simple-summary)
   * [What's in this repository?](#whats-in-this-repository)
   * [Installation](#installation)
   * [Materials](#materials)
@@ -133,5 +137,5 @@ DOI = {10.3390/ani14142029}
     * [Data Augmentation](#data-augmentation)
     * [Dataset](#dataset)
   * [Results](#results)
-  * [Citation](#citation)
+  * [Citation](#citation) -->
 <!-- TOC -->
