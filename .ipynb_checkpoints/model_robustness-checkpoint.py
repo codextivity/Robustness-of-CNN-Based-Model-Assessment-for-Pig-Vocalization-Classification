@@ -15,14 +15,14 @@ if gpus:
 
 
 # Dataset directory
-dataset_dir = 'Datasets_DIR/'
+dataset_dir = 'Datasets/pig_vocal_nonvocal/'
 # Load dataset
 features_X, features_Y = load_dataset(dataset_dir)
 # Reshape the label feature
 features_Y = features_Y.reshape(features_Y.shape[0], 1)
 
 test_inputs, test_list, test_labels = [], [], []
-feature_type = 5
+feature_type = 2
 sample_rate = 22050
 for i in tqdm(range(len(features_X))):
     data_feature = extract_features(feature_type=feature_type,

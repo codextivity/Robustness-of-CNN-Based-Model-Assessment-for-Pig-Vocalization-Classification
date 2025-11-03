@@ -11,7 +11,7 @@ def pitching(sample):
 
 
 def nosing(sample):
-    nosing_amp = 0.5*np.random.uniform()*np.amax(sample)
+    nosing_amp = 0.1*np.random.uniform()*np.amax(sample)
     y_nose = sample.astype('float64') + nosing_amp * np.random.normal(size=sample.shape[0])
     return y_nose
 

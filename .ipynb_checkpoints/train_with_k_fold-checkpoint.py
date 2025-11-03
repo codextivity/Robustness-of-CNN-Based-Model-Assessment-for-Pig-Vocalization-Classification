@@ -10,7 +10,7 @@ from sklearn.metrics import (accuracy_score,
                              roc_curve, auc)
 
 # Dataset directory
-dataset_dir = 'Datasets_DIR/'
+dataset_dir = 'Datasets/vocal_non-vocal/'
 # Load dataset
 features_X, features_Y = load_dataset(dataset_dir)
 # Reshape the label feature
@@ -38,7 +38,7 @@ aucs = []
 mean_fpr = np.linspace(0, 1, 100)
 
 # Train with 5-fold cross-validation
-class_labels = ['non-vocal', 'coughing', 'screaming', 'other']
+class_labels = ['non-vocalization', 'vocalization']
 i = 1
 k_fold = KFold(n_splits=5, shuffle=False, random_state=None)
 for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(inputs)))):
@@ -52,6 +52,8 @@ for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(i
     # Augment only training set
     X_input, y_input = dataset_augmentation(X_input, y_input, feature_type=5, aug=True)
     X_val, y_val = dataset_augmentation(X_val, y_val, feature_type=5, aug=False)
+    print(X_input.shape)
+    print(y_val.shape)
 
     k_fold_model = network_backbone(Input(shape=X_input[0].shape, name="input1"))
 
@@ -66,8 +68,8 @@ for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(i
     history = k_fold_model.fit(
         X_input,
         y_input,
-        epochs=30,
-        batch_size=32,
+        epochs=50,
+        batch_size=16,
         verbose=1,
         shuffle=True
     )
@@ -75,7 +77,7 @@ for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(i
     histories[fold_idx] = history
 
     # Predict on validation set
-    pred = k_fold_model.predict(X_val, batch_size=32)
+    pred = k_fold_model.predict(X_val, batch_size=16)
     val_pred = np.argmax(pred, axis=1)
     y_val_true = np.argmax(y_val, axis=1)
 
@@ -92,7 +94,7 @@ for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(i
 
     roc_hist[fold_idx] = {'fpr': fpr_list, 'tpr': tpr_list}
 
-    target_names = ['0', '1', '2', '3']
+    target_names = ['0', '1']
     val_acc = np.round(accuracy_score(y_val_true, val_pred), 4)
     val_report = classification_report(y_val_true, val_pred, target_names=class_labels, digits=4)
     val_acc_hist.append(val_acc)

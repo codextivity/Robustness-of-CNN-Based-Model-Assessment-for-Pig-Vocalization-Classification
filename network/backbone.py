@@ -1,25 +1,29 @@
-from keras.layers import Dense, Conv2D, MaxPool2D, Dropout, Flatten
+from keras.layers import Dense, Conv2D, MaxPool2D, Dropout, Flatten, BatchNormalization
 from keras.models import Model
 import tensorflow as tf
 
 
 def network_backbone(input_model_size):
-    md = Conv2D(32, kernel_size=(5, 5), padding='same', activation='relu', name='conv2d_1')(input_model_size)
-    md = MaxPool2D(pool_size=(2, 2))(md)
+    md = Conv2D(32, kernel_size=(5,5) ,padding = 'same', activation='relu' ,name= 'conv2d_1')(input_model_size)
+    md = BatchNormalization()(md)
+    md = MaxPool2D(pool_size=(2,2))(md)
 
-    md = Conv2D(64, kernel_size=(5, 5), padding='same', activation='relu', name='conv2d_2')(md)
-    md = MaxPool2D(pool_size=(2, 2))(md)
+    md = Conv2D(64, kernel_size=(5,5),padding = 'same',  activation='relu',name= 'conv2d_2')(md)
+    md = BatchNormalization()(md)
+    md = MaxPool2D(pool_size=(2,2))(md)
 
-    md = Conv2D(128, kernel_size=(5, 5), padding='same', activation='relu', name='conv2d_3')(md)
-    md = MaxPool2D(pool_size=(2, 2))(md)
+    md = Conv2D(128, kernel_size=(5,5),padding = 'same',   activation='relu',name= 'conv2d_3')(md)
+    md = BatchNormalization()(md)
+    md = MaxPool2D(pool_size=(2,2))(md)
 
-    md = Flatten(name='flatten_1')(md)
+    md = Flatten(name= 'flatten_1')(md)
     md = Dropout(0.5)(md)
-    md = Dense(1000, activation='relu', name='dense_1')(md)
+    md = Dense(1000, activation='relu',name= 'dense_1')(md)
     md = Dropout(0.5)(md)
-    output_md = Dense(2, activation='softmax', name='dense_2')(md)
-
+    output_md = Dense(4, activation='softmax',name= 'dense_2')(md)
+    
     output_model = Model(input_model_size, output_md)
+    output_model.summary()
 
     return output_model
 

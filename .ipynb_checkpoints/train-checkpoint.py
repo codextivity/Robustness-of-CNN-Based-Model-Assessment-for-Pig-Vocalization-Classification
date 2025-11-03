@@ -22,7 +22,7 @@ features_Y = features_Y.reshape(features_Y.shape[0], 1)
 X_train, X_test, y_train, y_test = train_test_split(features_X, features_Y, test_size=0.2, stratify=features_Y, shuffle=True, random_state=42)
 
 
-class_labels = ['non-vocal', 'coughing', 'screaming', 'other']
+class_labels = ['non-vocalization', 'vocalization']
 
 train_X, train_Y = dataset_augmentation(X_train, y_train, feature_type=5, aug=True)
 test_X, test_Y = dataset_augmentation(X_test, y_test, feature_type=5, aug=False)
@@ -51,7 +51,7 @@ history = model.fit(
     train_X,
     train_Y,
     epochs=50,
-    batch_size=32,
+    batch_size=16,
     verbose=1,
     shuffle=True,
     validation_split=0.2,
