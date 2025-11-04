@@ -38,7 +38,7 @@ aucs = []
 mean_fpr = np.linspace(0, 1, 100)
 
 # Train with 5-fold cross-validation
-class_labels = ['non-vocal', 'coughing', 'screaming', 'other']
+class_labels = ['non-vocal', 'coughing', 'screaming', 'normal']
 i = 1
 k_fold = KFold(n_splits=5, shuffle=False, random_state=None)
 for fold_idx, (train_index, val_index) in enumerate(k_fold.split(np.arange(len(inputs)))):
