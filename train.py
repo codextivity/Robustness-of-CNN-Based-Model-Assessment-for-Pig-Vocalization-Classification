@@ -13,7 +13,7 @@ from sklearn.metrics import (accuracy_score,
                              ConfusionMatrixDisplay)
 
 # Dataset directory
-dataset_dir = 'Datasets/vocal_non-vocal/'
+dataset_dir = 'Datasets_PATH'
 # Load dataset
 features_X, features_Y = load_dataset(dataset_dir)
 # Reshape the label feature

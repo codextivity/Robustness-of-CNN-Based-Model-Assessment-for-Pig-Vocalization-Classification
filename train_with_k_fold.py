@@ -10,7 +10,7 @@ from sklearn.metrics import (accuracy_score,
                              roc_curve, auc)
 
 # Dataset directory
-dataset_dir = 'Datasets_DIR/'
+dataset_dir = 'Datasets_PATH/'
 # Load dataset
 features_X, features_Y = load_dataset(dataset_dir)
 # Reshape the label feature
