@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from sklearn import preprocessing
-from Utilities.audio_augmentation import pitching, nosing, shifting, stretching
+from Utilities.audio_augmentation import pitching, noising, shifting, stretching
 
 
 def load_dataset(dataset_dir):
@@ -72,7 +72,7 @@ def dataset_augmentation(X_input, y_input, feature_type=2, aug=True):
             data_list.append(audio_pitching)
             data_labels.append(y_input[i])
 
-            audio_noising = nosing(X_input[i])
+            audio_noising = noising(X_input[i])
             audio_noising = extract_features(feature_type=feature_type,
                                              y=audio_noising, sr=sample_rate)
             data_list.append(audio_noising)
